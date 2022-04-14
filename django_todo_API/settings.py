@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'Optional default value') #If no secret key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG_STATE']
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['todo-api-01.herokuapp.com', '*']
 
 
 # Application definition
@@ -82,23 +82,24 @@ WSGI_APPLICATION = 'django_todo_API.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DATABASES = {}
+if os.environ['DEBUG_STATE']:
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('NAME', 'Optional default value'), 
-        'USER': os.getenv('USER', 'Optional default value'), 
-        'PASSWORD': os.getenv('PASSWORD', 'Optional default value'),
-        'HOST': '127.0.0.1', 
-        'PORT': os.getenv('PORT', 'Optional default value'),
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.getenv('NAME', 'Optional default value'), 
+            'USER': os.getenv('USER', 'Optional default value'), 
+            'PASSWORD': os.getenv('PASSWORD', 'Optional default value'),
+            'HOST': '127.0.0.1', 
+            'PORT': os.getenv('PORT', 'Optional default value'),
+        }
     }
-}
+else:
 
-
-if os.environ['DEBUG_STATE'] == False:
     #Update db settings to prod
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+    DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
+
 
 
 # Password validation
