@@ -83,18 +83,18 @@ WSGI_APPLICATION = 'django_todo_API.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-    """
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.getenv('NAME', 'Optional Default Value'), 
-            'USER': os.getenv('USER', 'Optional Default Value'), 
-            'PASSWORD': os.getenv('PASSWORD', 'Optional Default Value'),
-            'HOST': '127.0.0.1', 
-            'PORT': os.getenv('PORT', 'Optional Default Value')
-        }
-    }
-    """
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('NAME', 'Optional Default Value'), 
+#         'USER': os.getenv('USER', 'Optional Default Value'), 
+#         'PASSWORD': os.getenv('PASSWORD', 'Optional Default Value'),
+#         'HOST': '127.0.0.1', 
+#         'PORT': os.getenv('PORT', 'Optional Default Value')
+#     }
+# }
+
 
 #Update db settings to prod
 DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
