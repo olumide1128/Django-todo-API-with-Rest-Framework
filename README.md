@@ -4,7 +4,7 @@ the following endpoints:
   - api/task-list/ (DISPLAY ALL TASKS) 
   - api/task-detail/id/ (DISPLAY A SPECIFIC TASK)
   - api/task-create/ (CREATE A NEW TASK)
-  - api/task-update/ (UPDATE AN EXISTING TASK)
+  - api/task-update/id (UPDATE A SPECIFIC TASK)
   - api/task-delete/ (DELETE A TASK)
 
 ## Link to API
