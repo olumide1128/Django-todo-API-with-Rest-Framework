@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = os.getenv('SECRET_KEY', 'Optional default value') #If no secret key var, use default
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -88,11 +89,11 @@ if os.environ['DEBUG_STATE']:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.getenv('NAME', 'Optional default value'), 
-            'USER': os.getenv('USER', 'Optional default value'), 
-            'PASSWORD': os.getenv('PASSWORD', 'Optional default value'),
+            'NAME': os.getenv('NAME', 'Optional Default Value'), 
+            'USER': os.getenv('USER', 'Optional Default Value'), 
+            'PASSWORD': os.getenv('PASSWORD', 'Optional Default Value'),
             'HOST': '127.0.0.1', 
-            'PORT': os.getenv('PORT', 'Optional default value'),
+            'PORT': os.getenv('PORT', 'Optional Default Value')
         }
     }
 else:
@@ -149,4 +150,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

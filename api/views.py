@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.http import JsonResponse, HttpResponse
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -9,6 +9,10 @@ from .models import Task
 
 import os
 # Create your views here.
+
+
+def homeview(request):
+	return redirect('api-overview')
 
 
 @api_view(['GET'])
