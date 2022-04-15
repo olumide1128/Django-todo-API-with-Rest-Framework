@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'Optional default value') #If no secret key var, use default
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['DEBUG_STATE']
+DEBUG = os.getenv('DEBUG_STATE', True)
 
 ALLOWED_HOSTS = ['todo-api-01.herokuapp.com', '*']
 
